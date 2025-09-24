@@ -1,0 +1,14 @@
+{
+  "name": "Map Switch",
+  "author": "Makl",
+  "version": "1.0",
+  "description": "A mod which adds a Map Switch like in real life to any car in game. Adds a new UI app too!",
+  "dependencies": [],
+  "vehicle": false,
+  "branches": [],
+  "gameVersion": "0.37",
+  "tags": ["custom", "example"],
+  "archiveType": "zip",
+  "modType": "mod",
+  "uniqueID": "LOCALMOD123"
+}
