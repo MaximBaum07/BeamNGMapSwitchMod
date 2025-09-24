@@ -1,0 +1,26 @@
+<svg
+  viewBox="0 0 100 40"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:svg="http://www.w3.org/2000/svg"
+>
+  <style>
+    text {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 500;
+      fill: #fff;
+      font-size: 16px;
+      user-select: none;
+    }
+    #mapBox {
+      fill: #222;
+      stroke: #fff;
+      stroke-width: 1;
+      rx: 5;
+      ry: 5;
+      cursor: pointer;
+    }
+  </style>
+
+  <rect x="1" y="1" width="98" height="38" id="mapBox" />
+  <text x="50" y="24" text-anchor="middle" id="mapText">Map 1</text>
+</svg>
