@@ -27,10 +27,12 @@ angular.module("beamng.apps").directive("mapSwitch", [
         function switchMap() {
           currentIndex = (currentIndex + 1) % maps.length;
           applyMap(maps[currentIndex]);
-          // Notify Lua about map change
-          bngApi.engine.eval(
-            `be:callListeners("mapswitch/changeMap", ${currentIndex + 1})`
-          );
+
+          if (bngApi && typeof bngApi.engineLua === "function") {
+            bngApi.engineLua(`mapswitch_changeMap(${currentIndex + 1})`);
+          } else {
+            console.log("bngApi.engineLua not available");
+          }
         }
 
         element.on("click", switchMap);

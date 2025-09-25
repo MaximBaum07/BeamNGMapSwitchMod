@@ -1,6 +1,6 @@
 {
   "name": "Makl's Map Switch",
-  "description": "A UI app that displays the current perfomance map the car is on.",
+  "description": "A UI app that displays the current performance map the car is on.",
   "author": "Makl",
   "version": "1.4",
   "types": ["ui.apps.categories.vehicle_info"],

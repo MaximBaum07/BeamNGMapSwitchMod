@@ -1,54 +1,30 @@
 {
-  "etk800_map_switch_ecu": {
+  "etk_engine_v8_4.4_petrol_map_switch_ecu": {
     "information": {
       "authors": "YourName",
       "name": "Map Switch ECU",
-      "value": 2500,
-      "description": "Engine ECU with tunable maps for ETK800"
+      "value": 2700,
+      "description": "Engine ECU with map switch tuning"
     },
     "slotType": "etk_engine_v8_4.4_petrol_ecu",
     "variables": [
-      ["map1_boost", "range", "psi", "Map 1 Boost", 10, 6, 30, "Turbo boost PSI for map 1", ""],
-      ["map2_boost", "range", "psi", "Map 2 Boost", 15, 6, 30, "Turbo boost PSI for map 2", ""],
-      ["map3_boost", "range", "psi", "Map 3 Boost", 20, 6, 30, "Turbo boost PSI for map 3", ""]
+	  ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+      ["map1_boost", "range", "psi", "Engine", 10, 6, 18, "Boost for map 1", ""],
+      ["map2_boost", "range", "psi", "Engine", 15, 6, 30, "Boost for map 2", ""],
+      ["map3_boost", "range", "psi", "Engine", 20, 6, 50, "Boost for map 3", ""],
     ],
-    "slots2": [
-      ["name", "allowTypes", "denyTypes", "default", "description"],
-      ["map_switch_component", ["map_switch_component"], [], "map_switch_base", "Map Switch Component", {"coreSlot": true}]
-    ],
-    "components": {
-      "mapSwitch": {
-        "maps": [
-          {"name": "Map 1", "boost": 10, "fuelAdjustment": 1.0},
-          {"name": "Map 2", "boost": 15, "fuelAdjustment": 1.05},
-          {"name": "Map 3", "boost": 20, "fuelAdjustment": 1.1}
-        ]
-      }
-    },
-    "glowMap": {
-      "checkengine": {
-        "simpleFunction": {"led": 1},
-        "off": "invis",
-        "on": "invis"
-      }
-    },
     "controller": [
       ["fileName"],
-      ["mapSwitcher", {"numberOfMaps": 3, "defaultMapIndex": 1}]
-    ]
-  },
-  "map_switch_component": {
-    "information": {
-      "authors": "YourName",
-      "name": "Map Switch Component",
-      "value": 500
-    },
-    "slotType": "map_switch_component",
-    "variables": [
-      ["$boost", "range", "psi", "Boost Pressure", 10, 6, 30, "Turbo boost pressure PSI", "Turbo boost pressure"]
+      ["mapSwitcher", { "numberOfMaps": 3, "defaultMapIndex": 1 }]
     ],
+    "mainEngine": {
+      "hasRevLimiter": true,
+      "revLimiterRPM": 8600,               // a safe default for initialization
+      "revLimiterType": "timeBased",
+      "revLimiterCutTime": 0.08
+    },
     "turbocharger": {
-      "wastegateStart": "$boost"
+      "wastegateStart": 10                 // a safe default for initialization
     }
   }
 }
